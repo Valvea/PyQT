@@ -134,15 +134,15 @@ class Mainwidge(QtWidgets.QMainWindow):
 
         print(cenral)
         if cenral:
-            i=0
+            temp_font = QtGui.QFont("Arial", 12)
+            temp_font.setStrikeOut(True)
             for d in cenral:
                 self.main_widget.input.setText(d["text"])
                 self.main_widget.push_on_add_task_but()
-                if d["isChecked()"] is True:
-                    h_l=self.main_widget.vlayout.itemAt(i)
-                    temp = QtGui.QFont("Arial", 12)
-                    temp.setStrikeOut(True)
-                    h_l.itemAt(i).widget().setFont(temp)
+            for i in range(self.main_widget.vlayout.count()):
+                if cenral[i]["isChecked()"]==True:
+                    self.main_widget.vlayout.itemAt(i).itemAt(0).widget().setFont(temp_font)
+
 
 
 
